@@ -1,0 +1,10 @@
+node_modules/
+# De build van het portaal; publish:pages zet ze op de branch gh-pages.
+/dist
+# Wat Cypress bij een test achterlaat.
+/cypress/screenshots
+/cypress/videos
+/cypress/downloads
+.DS_Store
+.idea/
+*.iml

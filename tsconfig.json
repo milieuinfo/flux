@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es2022",
+        "module": "es2022",
+        "moduleResolution": "bundler",
+        "lib": ["es2022", "dom", "dom.iterable"],
+        "strict": true,
+        "experimentalDecorators": true,
+        "useDefineForClassFields": false,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "noEmit": true,
+        "types": ["cypress", "cypress-axe"]
+    },
+    "include": ["src/**/*.ts", "cypress/**/*.ts"],
+    "exclude": ["src/**/*.spec.ts"]
+}

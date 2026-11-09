@@ -1,0 +1,57 @@
+{
+    "name": "flux-portaal",
+    "private": true,
+    "description": "Het portaal van Team Flux, op GitHub Pages.",
+    "type": "module",
+    "packageManager": "pnpm@11.15.1+sha512.81350b07e53c9538a02f1f2303b4290fa2d7be04e56e2a970c4cc4b417dc761de196edabd49d55c7dc9580db81007c44143e4e3d7e462b3000d23c255122d065",
+    "devEngines": {
+        "packageManager": {
+            "name": "pnpm",
+            "version": "11.15.1+sha512.81350b07e53c9538a02f1f2303b4290fa2d7be04e56e2a970c4cc4b417dc761de196edabd49d55c7dc9580db81007c44143e4e3d7e462b3000d23c255122d065",
+            "onFail": "error"
+        }
+    },
+    "scripts": {
+        "start": "webpack serve --mode development",
+        "build": "webpack --mode production",
+        "publish:pages": "node resources/publish.mjs",
+        "banner": "node resources/banner/banner.mjs",
+        "lint": "eslint src cypress resources",
+        "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.spec.json",
+        "test": "jest",
+        "ct": "cypress open --component --config-file cypress/cypress.config.mjs",
+        "ct-ci": "cypress run --component --config-file cypress/cypress.config.mjs"
+    },
+    "dependencies": {
+        "@domg-wc/common": "2.22.0",
+        "@domg-wc/components": "2.22.0",
+        "@domg-wc/styles": "2.22.0",
+        "lit": "3.3.3"
+    },
+    "devDependencies": {
+        "@cypress/mount-utils": "4.1.2",
+        "@eslint/js": "9.39.1",
+        "@swc/core": "1.13.5",
+        "@swc/jest": "0.2.39",
+        "@types/jest": "29.5.14",
+        "axe-core": "4.10.3",
+        "cypress": "15.4.0",
+        "cypress-axe": "1.7.0",
+        "eslint": "9.39.1",
+        "globals": "16.5.0",
+        "html-webpack-plugin": "5.6.3",
+        "jest": "29.7.0",
+        "prettier": "3.6.2",
+        "swc-loader": "0.2.6",
+        "terser-webpack-plugin": "5.3.14",
+        "typescript": "5.9.3",
+        "typescript-eslint": "8.46.4",
+        "webpack": "5.98.0",
+        "webpack-cli": "6.0.1",
+        "webpack-dev-server": "5.2.2"
+    },
+    "volta": {
+        "node": "22.23.4",
+        "pnpm": "11.15.1"
+    }
+}

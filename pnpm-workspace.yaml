@@ -1,0 +1,7 @@
+# Geen install-scripts van dependencies: het portaal heeft ze niet nodig. vue-demi komt mee met @domg-wc/components.
+# Cypress zou zijn programma downloaden: dat doe je één keer zelf, met pnpm exec cypress install.
+# @swc/core heeft zijn programma al als optionele dependency per platform.
+allowBuilds:
+  vue-demi: false
+  cypress: false
+  '@swc/core': false
