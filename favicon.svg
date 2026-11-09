@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<!-- Het icoon van het portaal: de φ van Flux, op de diepe ruimte van de banner, zoals het icoon van Flux-MCP. Licht op
+     donker, zodat het opvalt in een lichte en in een donkere tabbalk. -->
+<defs>
+  <radialGradient id="ruimte" cx=".5" cy=".42" r=".75">
+    <stop offset="0" stop-color="#3a16b0"/>
+    <stop offset="1" stop-color="#0b0630"/>
+  </radialGradient>
+  <linearGradient id="phi" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset="1" stop-color="#ffc2ef"/>
+  </linearGradient>
+</defs>
+<rect width="32" height="32" rx="7" fill="url(#ruimte)"/>
+<ellipse cx="16" cy="16.4" rx="7.4" ry="6" transform="rotate(-14 16 16.4)" fill="none" stroke="url(#phi)"
+  stroke-width="2.4"/>
+<path d="M18.4 4.6L13.6 28.2" stroke="url(#phi)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
