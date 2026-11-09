@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 770" width="1400" height="770" role="img" aria-labelledby="titel beschrijving" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title id="titel">Van repo tot pod</title>
+  <desc id="beschrijving">Op GitLab staan in de groep flux de repo's flux-web-components, flux-portal, flux-mcp, flux-gateway en
+    flux-proto-&lt;naam&gt; voor de prototypes; flux-config staat in de groep cumulus/k8s/config.
+    flux-web-components heeft een spiegel op GitHub die enkel gelezen wordt. Jenkins bouwt de repo's: de images gaan
+    naar de registry, de npm-pakketten, de catalogus en de builds van Storybook en de prototypes naar Artifactory. Argo CD
+    leest flux-config en rolt per zuil uit op Kubernetes: on, oe en pr.</desc>
+  <defs>
+    <marker id="pijl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3a4550"/>
+    </marker>
+    <marker id="pijl-intern" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7785"/>
+    </marker>
+    <marker id="pijl-spiegel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2e6b30"/>
+    </marker>
+  </defs>
+  <style>
+    .titel { font-size: 24px; font-weight: 700; fill: #1d2733; }
+    .kop { font-size: 15px; font-weight: 700; fill: #1d2733; }
+    .host { font-size: 15px; font-weight: 700; fill: #003d99; }
+    .tekst { font-size: 13px; fill: #1d2733; }
+    .klein { font-size: 12px; fill: #4a5561; }
+    .pad { font-family: Menlo, Consolas, 'Courier New', monospace; font-size: 12px; fill: #003d99; }
+    .nieuw { font-size: 12px; font-weight: 700; fill: #6b5800; }
+    .spiegel-tekst { font-size: 12px; font-weight: 700; fill: #2e6b30; }
+    .verzoek { stroke: #3a4550; stroke-width: 1.6; fill: none; }
+    .intern { stroke: #6b7785; stroke-width: 1.5; stroke-dasharray: 2 4; stroke-linecap: round; fill: none; }
+    .spiegel { stroke: #2e6b30; stroke-width: 2; stroke-dasharray: 7 4; fill: none; }
+    .repo { fill: #ffffff; stroke: #0055cc; stroke-width: 1.5; }
+    .dienst { fill: #f4f6f8; stroke: #8a96a3; stroke-width: 1.5; }
+  </style>
+
+  <rect width="1400" height="770" fill="#ffffff"/>
+
+  <!-- Titel -->
+  <text x="24" y="48" class="titel">Van repo tot pod</text>
+  <text x="24" y="72" class="klein" font-size="14">Alles op GitLab. Jenkins bouwt en publiceert; Argo CD rolt per zuil uit wat in flux-config staat.</text>
+
+  <!-- GitLab -->
+  <rect x="24" y="96" width="316" height="620" rx="12" fill="#f5f9ff" stroke="#0055cc" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="40" y="120" class="host">GitLab</text>
+  <text x="102" y="120" class="klein">git.omgeving.vlaanderen.be</text>
+  <text x="40" y="142" class="klein">groep flux</text>
+
+  <rect x="40" y="154" width="284" height="60" rx="8" class="repo"/>
+  <text x="56" y="178" class="kop" font-size="14">flux-web-components</text>
+  <text x="56" y="198" class="klein">de componenten; spiegel op GitHub</text>
+
+  <rect x="40" y="230" width="284" height="60" rx="8" class="repo"/>
+  <text x="56" y="254" class="kop" font-size="14">flux-portal</text>
+  <text x="308" y="254" class="klein" text-anchor="end">nu flux</text>
+  <text x="56" y="274" class="klein">het portaal, met de inhoud per doelgroep</text>
+
+  <rect x="40" y="306" width="284" height="60" rx="8" class="repo"/>
+  <text x="56" y="330" class="kop" font-size="14">flux-mcp</text>
+  <text x="56" y="350" class="klein">catalogus, mcp-server, mcp-dashboard</text>
+
+  <rect x="40" y="382" width="284" height="60" rx="8" class="repo"/>
+  <text x="56" y="406" class="kop" font-size="14">flux-gateway</text>
+  <text x="308" y="406" class="nieuw" text-anchor="end">nieuw</text>
+  <text x="56" y="426" class="klein">enkel de rechten</text>
+
+  <rect x="40" y="458" width="284" height="60" rx="8" class="repo"/>
+  <text x="56" y="482" class="kop" font-size="14">flux-proto-&lt;naam&gt;</text>
+  <text x="56" y="502" class="klein">een prototype, zoals flux-proto-vizier</text>
+
+  <text x="40" y="610" class="klein">groep cumulus/k8s/config</text>
+  <rect x="40" y="620" width="284" height="80" rx="8" class="repo"/>
+  <text x="56" y="644" class="kop" font-size="14">flux-config</text>
+  <text x="308" y="644" class="klein" text-anchor="end">nu flux-mcp-config</text>
+  <text x="56" y="666" class="klein">KCL per zuil: de routes, de check, de pods,</text>
+  <text x="56" y="684" class="klein">de regels per pad, de configuratie van nginx</text>
+
+  <!-- GitHub -->
+  <rect x="420" y="96" width="200" height="50" rx="8" class="dienst"/>
+  <text x="436" y="117" class="kop" font-size="14">GitHub</text>
+  <text x="436" y="136" class="klein">spiegel, enkel lezen</text>
+  <line x1="324" y1="168" x2="418" y2="124" class="spiegel" marker-end="url(#pijl-spiegel)"/>
+  <text x="346" y="120" class="spiegel-tekst">spiegel</text>
+
+  <!-- Jenkins -->
+  <rect x="420" y="168" width="190" height="338" rx="10" fill="#eef1f4" stroke="#8a96a3" stroke-width="1.5"/>
+  <text x="436" y="194" class="kop" font-size="16">Jenkins</text>
+  <text x="436" y="214" class="klein">library Cumulus</text>
+  <text x="436" y="446" class="klein">testen, bouwen,</text>
+  <text x="436" y="462" class="klein">scannen met Trivy,</text>
+  <text x="436" y="478" class="klein">publiceren</text>
+  <line x1="324" y1="200" x2="418" y2="200" class="verzoek" marker-end="url(#pijl)"/>
+  <line x1="324" y1="260" x2="418" y2="260" class="verzoek" marker-end="url(#pijl)"/>
+  <line x1="324" y1="336" x2="418" y2="336" class="verzoek" marker-end="url(#pijl)"/>
+  <line x1="324" y1="412" x2="418" y2="412" class="verzoek" marker-end="url(#pijl)"/>
+  <line x1="324" y1="488" x2="418" y2="488" class="verzoek" marker-end="url(#pijl)"/>
+
+  <!-- Registry en Artifactory -->
+  <rect x="680" y="168" width="290" height="150" rx="8" class="dienst"/>
+  <text x="696" y="192" class="kop">Registry</text>
+  <text x="696" y="210" class="klein">de images, per versie</text>
+  <text x="696" y="236" class="pad">flux-portal</text>
+  <text x="696" y="256" class="pad">flux-gateway</text>
+  <text x="696" y="276" class="pad">flux-mcp-server</text>
+  <text x="696" y="296" class="pad">flux-mcp-dashboard</text>
+
+  <rect x="680" y="356" width="290" height="150" rx="8" class="dienst"/>
+  <text x="696" y="380" class="kop">Artifactory</text>
+  <text x="696" y="398" class="klein">zonder aanmelden te lezen</text>
+  <text x="696" y="424" class="tekst">de npm-pakketten @domg-wc</text>
+  <text x="696" y="444" class="tekst">de catalogus van flux-mcp</text>
+  <text x="696" y="464" class="tekst">Storybook (flux-storybook/)</text>
+  <text x="696" y="484" class="tekst">de prototypes (flux-prototypes/)</text>
+
+  <line x1="610" y1="243" x2="678" y2="243" class="verzoek" marker-end="url(#pijl)"/>
+  <text x="620" y="235" class="klein">images</text>
+  <line x1="610" y1="431" x2="678" y2="431" class="verzoek" marker-end="url(#pijl)"/>
+  <text x="620" y="423" class="klein">builds</text>
+
+  <!-- De config-job zet een image-tag -->
+  <path d="M515,506 V630 H326" class="intern" marker-end="url(#pijl-intern)"/>
+  <text x="525" y="574" class="klein">de config-job zet</text>
+  <text x="525" y="590" class="klein">een image-tag</text>
+
+  <!-- Kubernetes -->
+  <rect x="1060" y="168" width="310" height="338" rx="10" fill="#f5f9ff" stroke="#0055cc" stroke-width="1.5"/>
+  <text x="1076" y="194" class="kop" font-size="16">Kubernetes</text>
+  <text x="1076" y="214" class="klein">de namespace flux, per zuil</text>
+
+  <rect x="1076" y="230" width="278" height="66" rx="8" class="repo"/>
+  <text x="1092" y="254" class="kop" font-size="14">on · ontwikkel</text>
+  <text x="1092" y="276" class="klein">flux-ontwikkel.omgeving.vlaanderen.be</text>
+  <rect x="1076" y="306" width="278" height="66" rx="8" class="repo"/>
+  <text x="1092" y="330" class="kop" font-size="14">oe · oefen</text>
+  <text x="1092" y="352" class="klein">flux-oefen, flux-storybook-oefen, …</text>
+  <rect x="1076" y="382" width="278" height="66" rx="8" class="repo"/>
+  <text x="1092" y="406" class="kop" font-size="14">pr · productie</text>
+  <text x="1092" y="428" class="klein">flux, flux-storybook, flux-prototypes</text>
+  <text x="1076" y="482" class="klein">flux-static: nginx en een sync, geen eigen image</text>
+
+  <line x1="970" y1="243" x2="1058" y2="243" class="intern" marker-end="url(#pijl-intern)"/>
+  <text x="980" y="235" class="klein">images</text>
+  <line x1="970" y1="431" x2="1058" y2="431" class="intern" marker-end="url(#pijl-intern)"/>
+  <text x="980" y="407" class="klein">catalogus,</text>
+  <text x="980" y="423" class="klein">builds (sync)</text>
+
+  <!-- Argo CD -->
+  <rect x="1060" y="600" width="310" height="100" rx="10" class="dienst"/>
+  <text x="1076" y="626" class="kop" font-size="16">Argo CD</text>
+  <text x="1076" y="648" class="klein">leest flux-config per zuil, en rolt uit</text>
+  <text x="1076" y="666" class="klein">wat er staat: routes, check en pods</text>
+  <line x1="324" y1="660" x2="1058" y2="660" class="verzoek" marker-end="url(#pijl)"/>
+  <text x="360" y="652" class="klein">een merge request op een image-tag, een route of een regel</text>
+  <line x1="1215" y1="598" x2="1215" y2="508" class="verzoek" marker-end="url(#pijl)"/>
+  <text x="1225" y="558" class="klein">rolt uit</text>
+
+  <!-- Wat verdwijnt -->
+  <text x="24" y="746" class="klein">Verdwijnen: de repo's flux-builds en flux-prototypes met hun GitHub Pages (de builds gaan naar Artifactory), en de andere repo's op GitHub, behalve de spiegel van flux-web-components.</text>
+</svg>

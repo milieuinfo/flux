@@ -44,6 +44,7 @@ rij, en de pagina voor een onbekend pad.
 | `resources/publish.mjs`   | testen, bouwen en publiceren op GitHub Pages, via de branch `gh-pages`                   |
 | `cypress/`                | de configuratie van de componenttests                                                    |
 | `docs/technisch/`         | de technische documentatie                                                               |
+| `docs/architectuur/`      | de architectuur van Team Flux op het platform: de afwegingen, de namen en de schema's    |
 
 ## Commando's
 

@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 940" width="1400" height="940" role="img" aria-labelledby="titel beschrijving" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title id="titel">Team Flux op het containerplatform</title>
+  <desc id="beschrijving">Een medewerker, iedereen en een AI-client komen bij Traefik. Op flux.omgeving.vlaanderen.be gaat
+    /gateway naar flux-gateway, /mcp-dashboard naar flux-mcp-dashboard, /mcp-server naar flux-mcp-server en /portal
+    naar flux-portal; voor de afgeschermde paden vraagt Traefik eerst aan de gateway of het mag. flux-storybook en
+    flux-prototypes gaan publiek naar flux-static. Alle pods staan in de namespace flux. De gateway gebruikt Keycloak en
+    een databank voor de rechten, het mcp-dashboard een databank voor het gebruik, en de MCP-server, het portaal en
+    flux-static lezen uit Artifactory.</desc>
+  <defs>
+    <marker id="pijl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3a4550"/>
+    </marker>
+    <marker id="pijl-check" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a7300"/>
+    </marker>
+    <marker id="pijl-intern" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7785"/>
+    </marker>
+    <symbol id="slot" viewBox="0 0 12 15">
+      <path d="M3.2 7 V4.6 a2.8 2.8 0 0 1 5.6 0 V7" fill="none" stroke="#8a7300" stroke-width="1.6"/>
+      <rect x="1" y="6.6" width="10" height="7.8" rx="1.6" fill="#e0bf00" stroke="#8a7300" stroke-width="1"/>
+    </symbol>
+  </defs>
+  <style>
+    .titel { font-size: 24px; font-weight: 700; fill: #1d2733; }
+    .kop { font-size: 15px; font-weight: 700; fill: #1d2733; }
+    .host { font-size: 15px; font-weight: 700; fill: #003d99; }
+    .tekst { font-size: 13px; fill: #1d2733; }
+    .klein { font-size: 12px; fill: #4a5561; }
+    .pad { font-family: Menlo, Consolas, 'Courier New', monospace; font-size: 12px; fill: #003d99; }
+    .check { font-size: 12px; font-weight: 700; fill: #6b5800; }
+    .publiek { font-size: 12px; font-weight: 700; fill: #2e6b30; }
+    .verzoek { stroke: #3a4550; stroke-width: 1.6; fill: none; }
+    .forward { stroke: #8a7300; stroke-width: 2; stroke-dasharray: 7 4; fill: none; }
+    .intern { stroke: #6b7785; stroke-width: 1.5; stroke-dasharray: 2 4; stroke-linecap: round; fill: none; }
+    .pod { fill: #ffffff; stroke: #0055cc; stroke-width: 2; }
+    .dienst { fill: #f4f6f8; stroke: #8a96a3; stroke-width: 1.5; }
+  </style>
+
+  <rect width="1400" height="940" fill="#ffffff"/>
+
+  <!-- Titel -->
+  <text x="24" y="48" class="titel">Team Flux op het containerplatform</text>
+  <text x="24" y="72" class="klein" font-size="14">Drie hostnamen achter Traefik, alle pods in de namespace flux. De gateway beslist enkel wie wat mag; de pods doen de rest.</text>
+
+  <!-- Wie -->
+  <rect x="24" y="228" width="180" height="64" rx="8" class="dienst"/>
+  <text x="40" y="254" class="kop">Medewerker</text>
+  <text x="40" y="274" class="klein">browser, aangemeld</text>
+  <rect x="24" y="418" width="180" height="64" rx="8" class="dienst"/>
+  <text x="40" y="444" class="kop">Iedereen</text>
+  <text x="40" y="464" class="klein">browser, zonder aanmelden</text>
+  <rect x="24" y="608" width="180" height="64" rx="8" class="dienst"/>
+  <text x="40" y="634" class="kop">AI-client</text>
+  <text x="40" y="654" class="klein">met een persoonlijk token</text>
+  <line x1="204" y1="260" x2="242" y2="260" class="verzoek" marker-end="url(#pijl)"/>
+  <line x1="204" y1="450" x2="242" y2="450" class="verzoek" marker-end="url(#pijl)"/>
+  <line x1="204" y1="640" x2="242" y2="640" class="verzoek" marker-end="url(#pijl)"/>
+
+  <!-- Traefik -->
+  <rect x="244" y="130" width="150" height="706" rx="10" fill="#eef1f4" stroke="#8a96a3" stroke-width="1.5"/>
+  <text x="258" y="160" class="kop" font-size="17">Traefik</text>
+  <text x="258" y="180" class="klein">van het platform</text>
+  <text x="258" y="324" class="klein">Een HTTPRoute per</text>
+  <text x="258" y="340" class="klein">hostnaam en pad.</text>
+  <text x="258" y="372" class="klein">Voor een pad met</text>
+  <text x="258" y="388" class="klein">een slot vraagt hij</text>
+  <text x="258" y="404" class="klein">eerst de gateway:</text>
+  <text x="258" y="420" class="klein">mag dit?</text>
+  <text x="258" y="790" class="klein">certificaat:</text>
+  <text x="258" y="806" class="klein">*.omgeving.</text>
+  <text x="258" y="822" class="klein">vlaanderen.be</text>
+
+  <!-- Host flux.omgeving.vlaanderen.be -->
+  <rect x="560" y="92" width="430" height="556" rx="12" fill="#f5f9ff" stroke="#0055cc" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="578" y="116" class="host">flux.omgeving.vlaanderen.be</text>
+
+  <!-- Redirects -->
+  <rect x="590" y="128" width="340" height="42" rx="21" fill="#ffffff" stroke="#8a96a3" stroke-width="1.5"/>
+  <text x="608" y="145" class="klein">redirects: / → /portal/</text>
+  <text x="608" y="161" class="klein">/storybook en de oude paden → flux-storybook</text>
+  <line x1="394" y1="149" x2="588" y2="149" class="verzoek" marker-end="url(#pijl)"/>
+  <text x="406" y="141" class="pad">/, /storybook, …</text>
+
+  <!-- flux-gateway -->
+  <rect x="590" y="186" width="340" height="120" rx="10" fill="#fff7c2" stroke="#8a7300" stroke-width="2"/>
+  <text x="606" y="210" class="kop">flux-gateway</text>
+  <text x="914" y="210" class="check" text-anchor="end">enkel rechten</text>
+  <text x="606" y="234" class="tekst">aanmelden met ACM, sessie, persoonlijke tokens</text>
+  <text x="606" y="254" class="tekst">/gateway/auth: mag dit? Ja, met wie, de rollen</text>
+  <text x="606" y="274" class="tekst">en het pseudoniem; of 401, 403 of 429</text>
+  <text x="606" y="294" class="klein">geen schermen; kent MCP en Flux niet</text>
+  <line x1="394" y1="220" x2="588" y2="220" class="verzoek" marker-end="url(#pijl)"/>
+  <text x="406" y="212" class="pad">/gateway/*</text>
+  <line x1="396" y1="276" x2="588" y2="276" class="forward" marker-start="url(#pijl-check)" marker-end="url(#pijl-check)"/>
+  <text x="406" y="268" class="check">mag dit?</text>
+  <text x="406" y="294" class="check" font-weight="400">ForwardAuth</text>
+
+  <!-- flux-mcp-dashboard -->
+  <rect x="590" y="326" width="340" height="90" rx="10" class="pod"/>
+  <text x="606" y="350" class="kop">flux-mcp-dashboard</text>
+  <text x="606" y="372" class="tekst">documentatie, mijn tokens, mijn gebruik,</text>
+  <text x="606" y="392" class="tekst">statistiek, beheer en privacy; Spring Boot</text>
+  <line x1="394" y1="371" x2="588" y2="371" class="verzoek" marker-end="url(#pijl)"/>
+  <use href="#slot" x="400" y="355" width="12" height="15"/>
+  <text x="418" y="365" class="pad">/mcp-dashboard/*</text>
+
+  <!-- Tussen dashboard en server -->
+  <line x1="620" y1="460" x2="620" y2="419" class="intern" marker-end="url(#pijl-intern)"/>
+  <text x="630" y="444" class="klein">gebruik, met pseudoniem</text>
+  <line x1="800" y1="418" x2="800" y2="459" class="intern" marker-end="url(#pijl-intern)"/>
+  <text x="810" y="444" class="klein">versie catalogus</text>
+
+  <!-- flux-mcp-server -->
+  <rect x="590" y="462" width="340" height="90" rx="10" class="pod"/>
+  <text x="606" y="486" class="kop">flux-mcp-server</text>
+  <text x="606" y="508" class="tekst">Node; de catalogus per versie van Flux</text>
+  <text x="606" y="528" class="tekst">enkel bereikbaar via Traefik (Cilium)</text>
+  <line x1="394" y1="507" x2="588" y2="507" class="verzoek" marker-end="url(#pijl)"/>
+  <use href="#slot" x="400" y="491" width="12" height="15"/>
+  <text x="418" y="501" class="pad">/mcp-server</text>
+
+  <!-- flux-portal -->
+  <rect x="590" y="568" width="340" height="74" rx="10" class="pod"/>
+  <text x="606" y="592" class="kop">flux-portal</text>
+  <text x="606" y="614" class="tekst">nginx, statisch; de inhoud per doelgroep</text>
+  <text x="606" y="632" class="klein">als JSON onder /portal/content/</text>
+  <line x1="394" y1="603" x2="588" y2="603" class="verzoek" marker-end="url(#pijl)"/>
+  <text x="406" y="595" class="pad">/portal/*</text>
+  <use href="#slot" x="400" y="610" width="12" height="15"/>
+  <text x="418" y="622" class="klein">enkel op content/</text>
+
+  <!-- Hosts flux-storybook en flux-prototypes -->
+  <rect x="560" y="672" width="430" height="190" rx="12" fill="#f6faf6" stroke="#2e6b30" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="578" y="696" class="host" style="fill:#2e6b30">flux-storybook.omgeving.vlaanderen.be</text>
+  <text x="578" y="716" class="host" style="fill:#2e6b30">flux-prototypes.omgeving.vlaanderen.be</text>
+  <rect x="590" y="732" width="340" height="104" rx="10" class="pod"/>
+  <text x="606" y="756" class="kop">flux-static</text>
+  <text x="914" y="756" class="publiek" text-anchor="end">publiek</text>
+  <text x="606" y="780" class="tekst">nginx met Storybook en de prototypes,</text>
+  <text x="606" y="800" class="tekst">als builds uit Artifactory</text>
+  <text x="606" y="820" class="klein">eigen origin, zonder gateway</text>
+  <line x1="394" y1="784" x2="588" y2="784" class="verzoek" marker-end="url(#pijl)"/>
+  <text x="406" y="776" class="klein">elk pad</text>
+  <text x="406" y="802" class="publiek">zonder check</text>
+
+  <!-- Diensten achter de pods -->
+  <rect x="1120" y="180" width="250" height="56" rx="8" class="dienst"/>
+  <text x="1136" y="204" class="kop" font-size="14">Keycloak</text>
+  <text x="1136" y="224" class="klein">aanmelden met ACM (CSAM)</text>
+  <rect x="1120" y="250" width="250" height="56" rx="8" class="dienst"/>
+  <text x="1136" y="274" class="kop" font-size="14">PostgreSQL: rechten</text>
+  <text x="1136" y="294" class="klein">tokens, personen, audit</text>
+  <rect x="1120" y="340" width="250" height="62" rx="8" class="dienst"/>
+  <text x="1136" y="364" class="kop" font-size="14">PostgreSQL: gebruik</text>
+  <text x="1136" y="386" class="klein">events, cijfers, catalogusversie</text>
+  <rect x="1120" y="462" width="250" height="374" rx="8" class="dienst"/>
+  <text x="1136" y="488" class="kop" font-size="14">Artifactory</text>
+  <text x="1136" y="508" class="klein">repo.omgeving.vlaanderen.be</text>
+  <text x="1136" y="540" class="klein">de catalogus van flux-mcp,</text>
+  <text x="1136" y="556" class="klein">de npm-pakketten van Flux,</text>
+  <text x="1136" y="572" class="klein">Storybook en de prototypes</text>
+  <text x="1136" y="588" class="klein">als tgz per build</text>
+
+  <line x1="930" y1="208" x2="1118" y2="208" class="intern" marker-end="url(#pijl-intern)"/>
+  <text x="1000" y="200" class="klein">OIDC</text>
+  <line x1="930" y1="278" x2="1118" y2="278" class="intern" marker-end="url(#pijl-intern)"/>
+  <text x="1000" y="270" class="klein">tokens, audit</text>
+  <line x1="930" y1="371" x2="1118" y2="371" class="intern" marker-end="url(#pijl-intern)"/>
+  <text x="1000" y="363" class="klein">gebruik</text>
+  <line x1="930" y1="507" x2="1118" y2="507" class="intern" marker-end="url(#pijl-intern)"/>
+  <text x="1000" y="499" class="klein">catalogus</text>
+  <line x1="930" y1="603" x2="1118" y2="603" class="intern" marker-end="url(#pijl-intern)"/>
+  <text x="1000" y="595" class="klein">versies van Flux</text>
+  <line x1="930" y1="784" x2="1118" y2="784" class="intern" marker-end="url(#pijl-intern)"/>
+  <text x="1000" y="776" class="klein">builds (sync)</text>
+
+  <!-- Legende -->
+  <line x1="24" y1="898" x2="68" y2="898" class="verzoek" marker-end="url(#pijl)"/>
+  <text x="78" y="902" class="tekst">verzoek</text>
+  <line x1="164" y1="898" x2="208" y2="898" class="forward" marker-end="url(#pijl-check)"/>
+  <text x="218" y="902" class="tekst">de check: mag dit? (ForwardAuth)</text>
+  <use href="#slot" x="454" y="889" width="12" height="15"/>
+  <text x="472" y="902" class="tekst">pas na de check</text>
+  <line x1="614" y1="898" x2="658" y2="898" class="intern" marker-end="url(#pijl-intern)"/>
+  <text x="668" y="902" class="tekst">intern, naar een dienst of een andere pod</text>
+</svg>

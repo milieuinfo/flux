@@ -16,6 +16,9 @@ met Lit en TypeScript, gebundeld met Webpack, met de layout van een dashboard ui
 Hoe het in elkaar zit, hoe je een pagina toevoegt en hoe de banner ontstaat:
 [docs/technisch/portaal.md](docs/technisch/portaal.md).
 
+Een nieuwe opzet, met alles van Team Flux op het containerplatform en de code op GitLab, staat in de architectuur:
+[docs/architectuur/](docs/architectuur/README.md).
+
 ## Aan de slag
 
 Node 22 en pnpm 11; met Volta krijg je de versies uit `package.json`.
