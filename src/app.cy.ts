@@ -28,6 +28,19 @@ describe('Het portaal', () => {
         accessible('flux-app');
     });
 
+    it('opent de wegwijzer vanuit het menu, zonder herladen', () => {
+        cy.window().then((win) => win.history.replaceState(null, '', href('/')));
+        cy.mount(html`<flux-app></flux-app>`);
+        cy.contains('vl-nav-link', 'Wegwijzer')
+            .should('have.attr', 'href', href('/wegwijzer'))
+            .then((link) => link[0].click());
+        cy.get('flux-wegwijzer-page').should('exist');
+        cy.get('vl-nav-link[active]').should('contain', 'Wegwijzer');
+        cy.location('pathname').then((pathname) => expect(appPath(pathname)).to.equal('/wegwijzer'));
+        cy.document().its('title').should('equal', 'Wegwijzer · Flux');
+        accessible('flux-app');
+    });
+
     it('zegt dat een onbekende pagina niet bestaat, en leidt naar de start', () => {
         cy.window().then((win) => win.history.replaceState(null, '', href('/onbekend')));
         cy.mount(html`<flux-app></flux-app>`);

@@ -15,6 +15,7 @@ import { VlNavLinkComponent } from './layout/vl-nav-link.component';
 import { VlNavSubComponent } from './layout/vl-nav-sub.component';
 import './pages/home-page';
 import './pages/not-found-page';
+import './pages/wegwijzer-page';
 import { appPath, documentTitle, href, internalLink, NAVIGATE, navigate, NAVIGATION, resolve, Route } from './router';
 
 @customElement('flux-app')
@@ -117,6 +118,8 @@ export class FluxApp extends LitElement {
         switch (route.page) {
             case 'home':
                 return html`<flux-home-page></flux-home-page>`;
+            case 'wegwijzer':
+                return html`<flux-wegwijzer-page></flux-wegwijzer-page>`;
             default:
                 return html`<flux-not-found-page></flux-not-found-page>`;
         }

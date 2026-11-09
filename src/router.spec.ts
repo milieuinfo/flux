@@ -2,6 +2,8 @@ import { appPath, BUILT_PAGES, documentTitle, href, NAVIGATION, resolve, routes 
 
 test('elke pagina van het portaal, ook met een / op het einde', () => {
     expect(resolve('/')).toEqual({ page: 'home', title: 'Start' });
+    expect(resolve('/wegwijzer')).toEqual({ page: 'wegwijzer', title: 'Wegwijzer' });
+    expect(resolve('/wegwijzer/').page).toBe('wegwijzer');
     expect(resolve('/onbekend').page).toBe('unknown');
     expect(resolve('/onbekend/').page).toBe('unknown');
 });
@@ -25,6 +27,7 @@ test('de url van een pagina, onder de basis', () => {
 
 test('de titel van het tabblad', () => {
     expect(documentTitle(resolve('/'))).toBe('Flux');
+    expect(documentTitle(resolve('/wegwijzer'))).toBe('Wegwijzer · Flux');
     expect(documentTitle(resolve('/onbekend'))).toBe('Niet gevonden · Flux');
 });
 

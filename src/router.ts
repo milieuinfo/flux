@@ -6,7 +6,7 @@
 import type { VlIcon } from '@domg-wc/components/atom/icon/vl-icon-list';
 import PAGES from './pages.json';
 
-export type Page = 'home' | 'unknown';
+export type Page = 'home' | 'wegwijzer' | 'unknown';
 
 export interface Route {
     page: Page;
@@ -15,10 +15,14 @@ export interface Route {
 
 // De pagina's, in deze volgorde in het menu, met hun icoon in het menu en in de kop van de pagina. Een nieuwe pagina
 // komt ook in src/pages.json, voor haar index.html; router.spec.ts kijkt na dat beide lijsten dezelfde pagina's noemen.
-export const NAVIGATION: [path: string, title: string, icon: VlIcon][] = [['/', 'Start', 'places-home']];
+export const NAVIGATION: [path: string, title: string, icon: VlIcon][] = [
+    ['/', 'Start', 'places-home'],
+    ['/wegwijzer', 'Wegwijzer', 'direction-sign'],
+];
 
 const ROUTES: Record<string, Route> = {
     '/': { page: 'home', title: 'Start' },
+    '/wegwijzer': { page: 'wegwijzer', title: 'Wegwijzer' },
 };
 
 const UNKNOWN: Route = { page: 'unknown', title: 'Niet gevonden' };

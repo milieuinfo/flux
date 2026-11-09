@@ -2,7 +2,16 @@
 // simple-icons 13.21.0 (CC0-1.0), in een viewBox van 24 bij 24; de kleur komt van de link (currentColor). Zo staan ze
 // ook in de app van de gateway van flux-mcp.
 
-export const GITHUB_URL = 'https://github.com/milieuinfo/flux-web-components';
+// Een repo op GitHub, in de organisatie milieuinfo.
+export const githubRepo = (name: string) => `https://github.com/milieuinfo/${name}`;
+
+// Een repo op de GitLab van het departement, met zijn pad onder git/, zoals in de url om te clonen.
+export const gitlabRepo = (path: string) => `https://git.omgeving.vlaanderen.be/git/${path}`;
+
+export const GITHUB_URL = githubRepo('flux-web-components');
+
+// De releases van flux-web-components; de nieuwste toont de startpagina (release.ts).
+export const RELEASES_URL = `${GITHUB_URL}/releases`;
 
 // Storybook van de nieuwste release, via latest van Flux zelf.
 export const STORYBOOK_URL = 'https://flux.omgeving.vlaanderen.be/release-v2/latest/storybook';
@@ -11,6 +20,23 @@ export const FIGMA_URL = 'https://www.figma.com/design/XgxaEcbNFkGbWW5FkCnEQo/FL
 
 // De gids over Flux-AI in Storybook (Afnemen), in de nieuwste release.
 export const FLUX_AI_URL = `${STORYBOOK_URL}/?path=/docs/afnemen-flux-ai-frontendstroomlijning--documentatie`;
+
+// De gateway van Flux-MCP in de oefenomgeving; aanmelden gaat met een account van het departement.
+export const FLUX_MCP_URL = 'https://flux-mcp-oefen.omgeving.vlaanderen.be';
+
+// Het prototype van VIZIER, op de site van flux-prototypes.
+export const PROTOTYPE_URL = 'https://flux-prototypes.omgeving.vlaanderen.be/vizier/overzicht';
+
+// Het bord van Team Flux in Jira, en zijn pagina in Confluence.
+export const JIRA_URL =
+    'https://jira.omgeving.vlaanderen.be/jira/secure/RapidBoard.jspa?rapidView=980&useStoredSettings=true';
+export const CONFLUENCE_URL =
+    'https://confluence.omgeving.vlaanderen.be/confluence/spaces/AEO/pages/212436378/Team+Flux+UI+UX';
+
+// Digitaal Vlaanderen: het Vlaanderen Design System, en het idee in hun Jira Product Discovery (DS).
+export const DESIGN_SYSTEM_URL = 'https://www.vlaanderen.be/vlaanderen-design-system';
+export const DV_IDEA_URL =
+    'https://vlaamseoverheid.atlassian.net/jira/polaris/projects/DS/ideas/view/5724a117-be3c-4591-9435-ed3e569752f6';
 
 export const GITHUB =
     'M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01' +

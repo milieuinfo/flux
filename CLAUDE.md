@@ -26,7 +26,8 @@ Het portaal volgt visueel de app van de gateway van flux-mcp (`gateway/frontend/
 de layout van een dashboard uit de flux-starter-app, de startpagina met de banner, de inleiding en de tegels, en de kop
 van de pagina's. Neem bij een nieuwe pagina die opzet over, zodat beide als één geheel ogen.
 
-Wat er nu is: de basis met de startpagina en de pagina voor een onbekend pad. Waar het portaal verder naar linkt, volgt.
+Wat er nu is: de startpagina, met prominent de nieuwste release van Flux, de wegwijzer met alles van Team Flux op een
+rij, en de pagina voor een onbekend pad.
 
 ## Structuur
 
@@ -37,6 +38,7 @@ Wat er nu is: de basis met de startpagina en de pagina voor een onbekend pad. Wa
 | `src/pages.json`          | de paden die een eigen `index.html` krijgen, voor GitHub Pages                           |
 | `src/layout/`             | de layout van het dashboard, uit de flux-starter-app, zoals in de gateway                |
 | `src/links.ts`            | de links naar wat Team Flux maakt, en de logo's                                          |
+| `src/release.ts`          | de nieuwste release van flux-web-components, van de API van GitHub                       |
 | `src/assets/`             | de banner en het icoon; de banner maakt een script                                       |
 | `resources/banner/`       | het script voor de banner, en de nevel uit de banner van Flux-MCP                        |
 | `resources/publish.mjs`   | testen, bouwen en publiceren op GitHub Pages, via de branch `gh-pages`                   |

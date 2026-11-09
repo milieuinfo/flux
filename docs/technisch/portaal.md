@@ -27,8 +27,24 @@ flux-starter-app.
   flux-web-components op GitHub, Storybook van de nieuwste release en de componenten in Figma, en de versie van Flux
   waarmee het portaal gebouwd is. De pagina past zonder scrollen op het scherm van een laptop; op een gsm staan de
   tegels onder elkaar. De tegels staan in een eigen grid van drie kolommen, niet in die van Flux: die heeft er twaalf,
-  en met de ruimere tussenruimte werd ze op een smal scherm breder dan het scherm.
-- **De links** naar wat Team Flux maakt, en de logo's (uit simple-icons), staan één keer, in `src/links.ts`.
+  en met de ruimere tussenruimte werd ze op een smal scherm breder dan het scherm. De inleiding leidt naar de
+  wegwijzer.
+- **De nieuwste release** van Flux staat prominent op de startpagina, rechts van de inleiding, boven de derde tegel
+  (`src/pages/latest-release.ts`): de versie groot, met haar datum en de links naar de release notes en alle releases.
+  Het is de hoogste versie onder de releases van flux-web-components op GitHub (`src/release.ts`), niet de laatst
+  gepubliceerde: een release van v1 verschijnt soms na een van v2. Een concept of een pre-release telt niet. De
+  browser vraagt de releases aan de API van GitHub, zonder aanmelden; die laat 60 vragen per uur per IP-adres toe.
+  Daarom onthoudt de browser het antwoord een uur in `localStorage`, en valt hij terug op wat hij nog weet als GitHub
+  niet antwoordt. Weet hij niets, dan zegt het blok dat, met de link naar alle releases. De versie onderaan de
+  startpagina is een andere: die waarmee het portaal gebouwd is.
+- **De wegwijzer** (`src/pages/wegwijzer-page.ts`, `/wegwijzer`) zet alles van Team Flux op een rij, met bij elke link
+  een korte uitleg: de documentatie en de toepassingen (Storybook, Flux-MCP, het prototype), de code op GitHub (actief
+  en prototypes) en op GitLab, waar het team werkt (Jira, Confluence), en Digitaal Vlaanderen. De punten hebben de
+  opmaak van de documentatie van de gateway: een icoon in een badge, de naam als link en de uitleg, drie naast elkaar.
+  Vraagt een link een account, of is een repo op GitHub privé, dan staat dat naast de naam. Een nieuwe link komt in
+  `PARTS`, met zijn url in `src/links.ts`.
+- **De links** naar wat Team Flux maakt, en de logo's (uit simple-icons), staan één keer, in `src/links.ts`, met
+  `githubRepo()` en `gitlabRepo()` voor een repo op GitHub of op de GitLab van het departement.
 - **De andere pagina's** krijgen de kop van de documentatie van de gateway: het icoon uit het menu in een blauwe
   badge, en de titel (`pageHeader` in `src/pages/page.ts`), met de stijlen voor tekst op leesbreedte
   (`readingStyles`).
@@ -75,6 +91,10 @@ pnpm run publish:pages              # netwerk: testen, bouwen en publiceren op G
 De packages van Flux (`@domg-wc`) en de huisstijl (`@domg`) komen van de registry van het departement; `.npmrc` zegt
 waar. Lezen kan zonder aanmelden. Cypress installeer je één keer met `pnpm exec cypress install`; pnpm voert zijn
 install-script niet uit (`pnpm-workspace.yaml`).
+
+Geen componenttest vraagt de releases aan GitHub: `cypress/support/component.ts` geeft elke test dezelfde releases
+(`RELEASES`, met 2.22.0 als nieuwste), zonder wat de browser van een vorige test onthield. Een test die iets anders
+wil, zoals een fout van GitHub, zet zijn eigen `cy.intercept`.
 
 ### Publiceren
 

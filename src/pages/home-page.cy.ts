@@ -21,6 +21,20 @@ describe('De startpagina', () => {
         // Het dashboard toont op de startpagina geen titel; de pagina heeft er een voor een schermlezer.
         cy.get('h1').should('have.text', 'Flux');
         cy.get('.intro vl-paragraph[introduction]').should('contain', 'Flux is de frontend library');
+        cy.get('.intro').contains('vl-link', 'wegwijzer').should('have.attr', 'href', href('/wegwijzer'));
+        // Prominent naast de inleiding, boven de derde tegel: de nieuwste release, uit RELEASES in
+        // cypress/support/component.ts.
+        cy.get('flux-latest-release').find('.version').should('have.text', '2.22.0');
+        cy.get('flux-latest-release').then((release) => {
+            cy.get('.intro').then((intro) => {
+                cy.get('vl-info-tile-next').then((tiles) => {
+                    const box = release[0].getBoundingClientRect();
+                    expect(box.top, 'naast de inleiding').to.be.closeTo(intro[0].getBoundingClientRect().top, 1);
+                    expect(box.left, 'boven de derde tegel').to.be.closeTo(tiles[2].getBoundingClientRect().left, 1);
+                    expect(box.bottom, 'boven de tegels').to.be.lessThan(tiles[0].getBoundingClientRect().top);
+                });
+            });
+        });
         cy.get('vl-info-tile-next').should('have.length', 3).first().should('contain', 'Web componenten');
         // Bovenaan de inleiding, smaller dan de drie tegels samen, en daaronder de tegels op een rij.
         cy.get('.intro').then((intro) => {
@@ -75,6 +89,16 @@ describe('De startpagina', () => {
     it('zet de tegels op een gsm onder elkaar, binnen de breedte van het scherm', () => {
         cy.viewport(390, 844);
         cy.mount(html`<flux-home-page></flux-home-page>`);
+        // De nieuwste release onder de inleiding, boven de tegels.
+        cy.get('flux-latest-release').then((release) => {
+            cy.get('.intro').then((intro) => {
+                cy.get('vl-info-tile-next').then((tiles) => {
+                    const box = release[0].getBoundingClientRect();
+                    expect(box.top, 'onder de inleiding').to.be.greaterThan(intro[0].getBoundingClientRect().bottom);
+                    expect(box.bottom, 'boven de tegels').to.be.lessThan(tiles[0].getBoundingClientRect().top);
+                });
+            });
+        });
         cy.get('vl-info-tile-next').then((tiles) => {
             const [first, second, third] = [...tiles].map((tile) => tile.getBoundingClientRect());
             expect(second.top, 'onder elkaar').to.be.greaterThan(first.bottom);

@@ -2,6 +2,8 @@
 
 Het portaal van Team Flux (Frontend Library en User eXperience) van het Departement Omgeving: van hieruit vind je
 alles wat het team maakt, zoals de web componenten met hun documentatie in Storybook, het ontwerp in Figma en Flux-AI.
+De startpagina toont de nieuwste release van Flux; de wegwijzer zet de repo's, de documentatie en de plaatsen waar het
+team werkt op een rij.
 
 Het portaal staat op GitHub Pages: <https://milieuinfo.github.io/flux/>.
 

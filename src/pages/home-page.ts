@@ -1,6 +1,7 @@
 // De startpagina van het portaal, zoals die van de gateway van flux-mcp: de banner bovenaan, de inleiding en drie
 // tegels op een rij die naar wat Team Flux maakt leiden. De inleiding is smaller dan de drie tegels samen: zo vormt ze
-// geen blok erboven.
+// geen blok erboven. Rechts ervan, boven de derde tegel, staat prominent de nieuwste release van Flux
+// (latest-release.ts); de inleiding leidt naar de wegwijzer, met alles van Team Flux op een rij.
 //
 // De banner staat in vl-content-header; de component vraagt naast het beeld een contextlink en een titellink. Het beeld
 // is versiering: een lege alt. Het toont het universum van Flux als een sterrenstelsel, in de stijl van de banner van
@@ -31,6 +32,7 @@ import pkg from '../../package.json';
 import banner from '../assets/flux-banner.svg';
 import { FIGMA, FIGMA_URL, FLUX_AI_URL, GITHUB, GITHUB_URL, STORYBOOK, STORYBOOK_URL } from '../links';
 import { href } from '../router';
+import './latest-release';
 import { pageStyles } from './page';
 
 registerWebComponents([VlContentHeaderComponent, VlInfoTileComponent, VlParagraphComponent]);
@@ -191,7 +193,7 @@ export class HomePage extends LitElement {
                 gap: 4rem;
             }
 
-            /* De inleiding over de eerste twee kolommen van de tegels. */
+            /* De inleiding over de eerste twee kolommen van de tegels, de nieuwste release boven de derde. */
             .intro-row {
                 display: grid;
                 grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -205,6 +207,11 @@ export class HomePage extends LitElement {
             .intro {
                 grid-column: 1 / 3;
                 max-width: calc((500% + 4rem) / 6);
+            }
+
+            flux-latest-release {
+                grid-column: 3;
+                align-self: start;
             }
 
             /* De inleiding 10% kleiner dan in Flux, op elk scherm: Flux kiest de grootte per scherm uit deze
@@ -227,7 +234,8 @@ export class HomePage extends LitElement {
                     gap: 3rem;
                 }
 
-                .intro {
+                .intro,
+                flux-latest-release {
                     grid-column: auto;
                     max-width: none;
                 }
@@ -266,9 +274,11 @@ export class HomePage extends LitElement {
                         <vl-paragraph introduction custom-css=${INTRO_CSS}>
                             <strong>Flux</strong> is de frontend library van het Departement Omgeving, met de
                             componenten in de huisstijl van de Vlaamse overheid, hun ontwerp in Figma en Flux-AI voor de
-                            AI-client van je project. Op dit portaal vind je alles wat Team Flux maakt.
+                            AI-client van je project. Op dit portaal vind je alles wat Team Flux maakt; de
+                            <vl-link href=${href('/wegwijzer')}>wegwijzer</vl-link> zet het op een rij.
                         </vl-paragraph>
                     </div>
+                    <flux-latest-release></flux-latest-release>
                 </div>
                 <div class="tiles">${TILES.map((tile) => this.renderTile(tile))}</div>
             </section>
